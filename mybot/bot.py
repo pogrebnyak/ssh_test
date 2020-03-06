@@ -9,8 +9,8 @@ import time
 
 myCmd2 = os.popen('hostname').read()
 
-WEBHOOK_HOST = '31.134.121.72:8443'
-PATH = 'bot'
+WEBHOOK_HOST = '34.77.212.75:443'
+PATH = 'bot2/bot'
 WEBHOOK_URL = f'{WEBHOOK_HOST}/{PATH}{config.token}'
 
 
@@ -61,4 +61,4 @@ if __name__ == "__main__":
              certificate=open('./nginx-selfsigned.crt','r')
              )
     print(bot.get_webhook_info())
-    app.run(host='127.0.0.1', port=5000, debug=True)
+    app.run(host='127.0.0.1', port=5001, debug=True)

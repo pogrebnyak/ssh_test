@@ -7,10 +7,10 @@ import dbworker
 import time
 from flask import request, abort
 from telebot import types
+from mongoengine import *
 
-WEBHOOK_HOST = '34.77.212.75:443'
 PATH = 'bot/bot'
-WEBHOOK_URL = f'{WEBHOOK_HOST}/{PATH}{config.token}'
+WEBHOOK_URL = f'{config.WEBHOOK_HOST}/{PATH}{config.token}'
 
 bot = telebot.TeleBot(config.token)
 keyboard1 = types.ReplyKeyboardMarkup(row_width=2, resize_keyboard=True)
@@ -92,6 +92,7 @@ def user_wish_address(message):
 
 
 if __name__ == "__main__":
+    connect('db_telebot')
     bot.remove_webhook()
     time.sleep(1)
     bot.set_webhook(
