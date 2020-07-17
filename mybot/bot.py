@@ -40,6 +40,16 @@ def webhook():
 def cmd_start(message):
     bot.send_message(message.chat.id, myCmd2, reply_markup=keyboard)
 
+@bot.message_handler(commands=["uptime"])
+def cmd_uptime(message):
+    upcmd = os.popen('uptime').read()
+    bot.send_message(message.chat.id, upcmd)
+
+@bot.message_handler(commands=["pegas"])
+def my_pegas(message):
+    bot.send_message(message.chat.id,"hold the golden ducat")
+
+
 @bot.message_handler(content_types=['text'])
 def send_text(message):
     if message.text == 'uptime':
