@@ -5,6 +5,7 @@ import telebot
 import os
 import config
 import time
+from work import loto
 
 
 myCmd2 = os.popen('hostname').read()
@@ -47,7 +48,7 @@ def cmd_uptime(message):
 
 @bot.message_handler(commands=["pegas"])
 def my_pegas(message):
-    bot.send_message(message.chat.id,"hold the golden ducat")
+    bot.send_message(message.chat.id,loto(6,52))
 
 
 @bot.message_handler(content_types=['text'])
